@@ -1,0 +1,16 @@
+body { background-color: #f8f9fa; }
+#markerMap { width: 100% ;height: 60vh; margin-bottom: 1.5rem; }
+.section-title {
+    background: #343a40; color: #fff;
+    padding: .5rem 1rem; margin-top: 1.5rem;
+    font-weight: bold; border-radius: .25rem;
+}
+.legend-item {
+    display: flex; align-items: center; margin-bottom: .5rem;
+}
+.legend-icon {
+    width: 16px; height: 16px; margin: 0 .5rem;
+}
+.description {
+    font-size: .9rem; color: #555;
+}
