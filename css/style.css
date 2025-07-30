@@ -1,5 +1,5 @@
 body { background-color: #f8f9fa; }
-#markerMap { width: 100% ;height: 60vh; margin-bottom: 1.5rem; }
+#markerMap { width: 100% ;height: 70vh; margin-bottom: 1.5rem; }
 .section-title {
     background: #343a40; color: #fff;
     padding: .5rem 1rem; margin-top: 1.5rem;
@@ -13,4 +13,15 @@ body { background-color: #f8f9fa; }
 }
 .description {
     font-size: .9rem; color: #555;
+}
+
+.header {
+background-color: #343a40bd;
+color: white;
+padding: 2rem 1rem;
+}
+
+.header img {
+max-width: 100%;
+height: auto;
 }
