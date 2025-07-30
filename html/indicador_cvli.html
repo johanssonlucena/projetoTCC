@@ -13,13 +13,23 @@
 
 </head>
 <body>
-  <nav class="navbar navbar-dark bg-dark mb-4">
-  <div class="container">
-    <span class="navbar-brand mb-0 h1 fw-bold">Visualizações Interativas da Segurança Pública</span>
-  </div>
-  </nav>
+  <!-- Header (imagem e Cabeçalho) -->
+  <header class="header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
+          <img src="../img/header.png" alt="Logo" class="img-fluid">
+        </div>
+        <div class="col-12 col-md-8 text-center text-md-start">
+          <h1 class="h1 mb-2">Visualizações Interativas</h1>
+          <h4 class="mb-0">Dados da Segurança Pública</h4>
+        </div>
+      </div>
+    </div>
+  </header>
 
-  <div class="container py-4">
+  <!-- Conteúdo CVP e Mapa -->
+  <div class="container py-1"> 
 
     <!-- Cabeçalho -->
     <div class="text-center mb-4">
@@ -40,6 +50,7 @@
         <p>Os registros dessa visualização se referem ao período de 18/05/2023 até 25/04/2025, 
           e a data de referência para o filtro é 25/04/2025.</p>
       </div>
+      <!-- Marcadores -->
       <div class="col-md-4">
         <label class="form-label">Tipos de CVLI:</label>
         <div class="form-check legend-item">
@@ -59,14 +70,14 @@
         </div>
         <div class="form-check legend-item">
           <input class="form-check-input crime-filter" type="checkbox" value="Morte decorrente de Confronto Policial" checked>
-          <img src="https://maps.google.com/mapfiles/ms/icons/green-dot.png" class="legend-icon">
+          <img src="https://maps.google.com/mapfiles/ms/icons/orange-dot.png" class="legend-icon">
           <label class="form-check-label">Confronto Policial</label>
         </div>
       </div>
       <div class="col-md-4">
-        <label class="form-label">Descrição</label>
-        <p class="description">Crimes Violentos Letais e Intencionais - CVLI, é a designação criada pela 
-            Secretaria Nacional de Segurnaça Pública a crimes dolosos que resultam em morte.</p>
+        <label class="form-label">Descrição:</label>
+        <p class="description">Crimes Violentos Letais e Intencionais - CVLI: Número de vítimas de Homicídios dolosos, 
+          Latrocínios, Feminicídios e quaisquer outros crimes intencionais que resultem em morte. </p>
       </div>
     </div>
 
