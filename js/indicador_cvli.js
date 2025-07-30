@@ -3,13 +3,13 @@ let rawData = [];
 // Inicializa mapa de marcadores
 const markerMap = L.map('markerMap').setView([-7.23, -35.88], 13);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(markerMap);
-let markerGroup = L.layerGroup().addTo(markerMap);
+let markerClusterGroup = L.markerClusterGroup({maxClusterRadius: 15}).addTo(markerMap);
 
 const icons = {
-    'Homicídio doloso': L.icon({ iconUrl: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png', iconSize:[32,32]}),
-    'Latrocínio': L.icon({ iconUrl: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png', iconSize:[35,35]}),
-    'Feminicídio': L.icon({ iconUrl: 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png', iconSize:[42,42]}),
-    'Morte decorrente de Confronto Policial': L.icon({ iconUrl: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png', iconSize:[42,42]})
+    'Homicídio doloso': L.icon({ iconUrl: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png', iconSize:[30,30]}),
+    'Latrocínio': L.icon({ iconUrl: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png', iconSize:[30,30]}),
+    'Feminicídio': L.icon({ iconUrl: 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png', iconSize:[35,35]}),
+    'Morte decorrente de Confronto Policial': L.icon({ iconUrl: 'https://maps.google.com/mapfiles/ms/icons/orange-dot.png', iconSize:[35,35]})
 };
 
 function updateMap() {
@@ -24,17 +24,17 @@ function updateMap() {
     filtered = rawData.filter(d => new Date(d.data) >= cutoff);
     }
 
-    markerGroup.clearLayers();
+    markerClusterGroup.clearLayers();
     filtered
     .filter(d => selectedTypes.includes(d.tipo))
     .forEach(d => {
-        L.marker([d.latitude, d.longitude], { icon: icons[d.tipo] })
-        .bindPopup(
-            `<strong>Tipo:</strong> ${d.tipo}<br>` +
-            `<strong>Bairro:</strong> ${d.bairro}<br>` +
-            `<strong>Data:</strong> ${new Date(d.data).toLocaleString()}`
-        )
-        .addTo(markerGroup);
+        const marker = L.marker([d.latitude, d.longitude], { icon: icons[d.tipo] })
+            .bindPopup(
+                `<strong>Tipo:</strong> ${d.tipo}<br>` +
+                `<strong>Bairro:</strong> ${d.bairro}<br>` +
+                `<strong>Data:</strong> ${new Date(d.data).toLocaleString()}`
+            );
+        markerClusterGroup.addLayer(marker);
     });
 }
 

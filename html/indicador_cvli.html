@@ -9,9 +9,12 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <!-- Leaflet CSS -->
   <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <!-- Estilo Local -->
   <link rel="stylesheet" href="../css/style.css">
-
 </head>
+
 <body>
   <!-- Header (imagem e Cabeçalho) -->
   <header class="header">
@@ -88,25 +91,28 @@
   <!-- JS Dependências -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
   
   <!-- Lógica para o Mapa -->
   <script src="../js/indicador_cvli.js"></script>
 
+  <!-- Botão para retornar -->
   <div class="d-flex justify-content-center my-4">
     <a href="indicadores.html" class="btn btn-outline-secondary">
       <i class="bi bi-box-arrow-in-left"></i>  Voltar para Indicadores</a>
   </div>
 
-<footer class="bg-dark text-light py-4 mt-4">
-  <div class="container text-center">
-    <div class="mb-2">
-      &copy; 2025 - Todos os direitos reservados.
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-4 mt-4">
+    <div class="container text-center">
+      <div class="mb-2">
+        &copy; 2025 - Todos os direitos reservados.
+      </div>
+      <div>
+        <a href="sobre.html" class="text-decoration-none text-light">Sobre a Página</a>
+      </div>
     </div>
-    <div>
-      <a href="sobre.html" class="text-decoration-none text-light">Sobre a Página</a>
-    </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>
