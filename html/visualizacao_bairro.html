@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Visualizações Por Bairro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Leaflet CSS -->
+  <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <!-- Estilo Local -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <!-- Header (imagem e Cabeçalho) -->
+  <header class="header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
+          <img src="../img/header.png" alt="Logo" class="img-fluid">
+        </div>
+        <div class="col-12 col-md-8 text-center text-md-start">
+          <h1 class="h1 mb-2">Visualizações Interativas</h1>
+          <h4 class="mb-0">Dados da Segurança Pública</h4>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo -->
+  <div class="container py-1"> 
+
+    <!-- Cabeçalho -->
+    <div class="text-center mb-4">
+      <h3 class="section-title">VISUALIZAÇÃO POR BAIRRO</h3>
+    </div>
+
+    <!-- Seletor de Tempo, Legenda com Filtros e Descrição -->
+    <div class="row mb-4 align-items-start">
+      <div class="col-md-4">
+        <label for="periodSelect" class="form-label">Período dos dados</label>
+        <select id="periodSelect" class="form-select">
+          <option value="0" selected>Todos</option>
+          <option value="7">Última semana</option>
+          <option value="30">Último mês</option>
+          <option value="182">Últimos 6 meses</option>
+          <option value="365">Último ano</option>
+        </select>
+        <p>Os registros dessa visualização se referem ao período de 18/05/2023 até 25/04/2025, 
+          e a data de referência para o filtro é 25/04/2025.</p>
+      </div>
+
+      <div class="col-md-4">
+        <label for="bairroSelect" class="form-label">Filtrar por Bairro</label>
+        <select id="bairroSelect" class="form-select">
+            <option value="nenhum" selected>Nenhum</option>
+            <option value="todos">Todos os Bairros</option>
+            <!-- Opções geradas dinamicamente via JS -->
+        </select>
+      </div>
+            <div class="col-md-4">
+        <label class="form-label">Descrição:</label>
+        <p class="description">Visualização específica para cada Bairro.
+        </p>
+      </div>
+    </div>
+
+    <!-- Mapa de Marcadores -->
+    <div id="markerMap" class="bg-white rounded shadow"></div>
+  </div>
+
+  <!-- JS Dependências -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  
+  <!-- Lógica para o Mapa -->
+  <script src="../js/vis_bairro.js"></script>
+
+  <!-- Botão para retornar -->
+  <div class="d-flex justify-content-center my-4">
+    <a href="../index.html" class="btn btn-outline-secondary">
+      <i class="bi bi-box-arrow-in-left"></i>  Voltar</a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-4 mt-4">
+    <div class="container text-center">
+      <div class="mb-2">
+        &copy; 2025 - Todos os direitos reservados.
+      </div>
+      <div>
+        <a href="sobre.html" class="text-decoration-none text-light">Sobre a Página</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
