@@ -1,0 +1,151 @@
+/* Reset básico */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+/* Seção: Sobre */
+#sobre {
+  background-color: #f2f2f2;
+  padding: 60px 0;
+}
+
+#sobre h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* Painéis (cards) */
+#painéis .card {
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 12px;
+}
+
+#painéis .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+#painéis .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+#painéis .card-text {
+  color: #555;
+}
+
+/* Título das seções */
+h2 {
+  color: #222;
+}
+
+/* Rodapé */
+footer {
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 0.95rem;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+}
+
+/* Estilo especial para a seção "Sobre a Plataforma" */
+.bg-sobre {
+  background-color: #f1f1f1;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+#sobre h2 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+#sobre p {
+  font-size: 1.05rem;
+  color: #555;
+  text-align: justify;
+}
+
+/* Linha divisória discreta entre título e texto */
+.border-end {
+  border-color: #ccc !important;
+}
+
+/* Painéis com imagem à esquerda */
+.painel {
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  min-height: 200px;
+}
+
+/* Divisão visual entre imagem e texto */
+.painel-img {
+  flex: 0 0 200px;
+  border-right: 3px solid rgba(0, 0, 0, 0.05);
+}
+
+.painel-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Cores suaves diferentes */
+.painel-1 { background-color: #fd5f5f; }
+.painel-2 { background-color: #8cf348; }
+.painel-3 { background-color: #5f62f8; }
+.painel-4 { background-color: #d9f731; }
+.painel-5 { background-color: #f8b653; }
+.painel-6 { background-color: #ee7cfd; }
+
+.painel h5 {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.painel p {
+  margin-bottom: 0;
+  color: #ffffff;
+}
+
+/* Responsivo: empilha imagem e texto em telas pequenas */
+@media (max-width: 768px) {
+  .painel {
+    flex-direction: column;
+  }
+
+  .painel-img {
+    border-right: none;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+  }
+}
+
+a.text-decoration-none:hover {
+  text-decoration: none;
+  opacity: 0.95;
+}
