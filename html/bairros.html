@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Top 15 Bairros por Ocorrência</title>
+</head>
+<body>
+  <div id="chart" style="width: 100%; height: 500px;"></div>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+  <script>
+    const chartDom = document.getElementById('chart');
+    const myChart = echarts.init(chartDom);
+
+    function processData(dataJson) {
+      const counts = {};
+      dataJson.forEach(item => {
+        counts[item.bairro] = (counts[item.bairro] || 0) + 1;
+      });
+
+      let countsArray = Object.entries(counts);
+      countsArray.sort((a, b) => b[1] - a[1]);
+      countsArray = countsArray.slice(0, 15);
+      countsArray.reverse();
+
+      const sourceData = [
+        ['quantidade', 'bairro']
+      ];
+      countsArray.forEach(([bairro, quantidade]) => {
+        sourceData.push([quantidade, bairro]);
+      });
+
+      const option = {
+          title: {
+            text: 'Top15 Bairros com mais registros',
+            left: 'center',  
+            top: 'top',      
+            textStyle: {
+            fontSize: 20,
+            fontWeight: 'bold',
+            color: '#333'  
+            }
+        },
+        dataset: { source: sourceData },
+        grid: { containLabel: true },
+        xAxis: { name: 'Quantidade', type: 'value' },
+        yAxis: { name: 'Bairro', type: 'category' },
+        visualMap: {
+          orient: 'horizontal',
+          left: 'center',
+          min: 2,
+          max: sourceData.reduce((max, cur) => cur[0] > max ? cur[0] : max, 0),
+          text: ['Mais Ocorrências', 'Menos Ocorrências'],
+          dimension: 0,
+          inRange: {
+            color: ['#7FDBFF', '#0074D9', '#001F3F']
+          }
+        },
+        series: [
+          {
+            type: 'bar',
+            encode: { x: 'quantidade', y: 'bairro' }
+          }
+        ]
+      };
+
+      myChart.setOption(option);
+    }
+
+    fetch('../json/cvli.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erro ao carregar o arquivo JSON');
+        }
+        return response.json();
+      })
+      .then(dataJson => {
+        processData(dataJson);
+      })
+      .catch(error => {
+        console.error('Erro:', error);
+        chartDom.innerHTML = '<p style="color:red; text-align:center;">Erro ao carregar os dados.</p>';
+      });
+  </script>
+
+</body>
+</html>
